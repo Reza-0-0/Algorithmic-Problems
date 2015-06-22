@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class DynamicProgrammingAlgorithms {
   // Dynamic programming Knapsack Problem
 	public static double knapSack(double[] w, double[] v, double maxWeigth) {
