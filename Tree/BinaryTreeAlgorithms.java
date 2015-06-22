@@ -13,7 +13,6 @@ class BinaryTreeNode {
 }
 
 public class BinaryTreeAlgorithms {
-	
 	// Make random-balanced binary tree
 	public static BinaryTreeNode makeRandomBallancedBibaryTree() {
 		BinaryTreeNode root;
@@ -34,13 +33,10 @@ public class BinaryTreeAlgorithms {
 	public static BinaryTreeNode makeRandomBallancedBibaryTree(int[] anArray) {
 
 		BinaryTreeNode root;
-
 		Arrays.sort(anArray);
-
 		root = convertSortedArrayToBinarySearchtree(anArray, 0,
 				anArray.length - 1);
 		return root;
-
 	}
 
 	// Convert sorted array to balanced binary search tree
@@ -124,7 +120,6 @@ public class BinaryTreeAlgorithms {
 					inOrderList);
 			return;
 		}
-
 	}
 
 	// Binary tree pre-order recursively
@@ -156,9 +151,7 @@ public class BinaryTreeAlgorithms {
 			postOrderList.add(root);
 			return;
 		}
-
 	}
-
 	// Calculate the depth of the binary tree
 	public static int binaryTreeDepth(BinaryTreeNode root) {
 		if (root == null)
@@ -167,7 +160,6 @@ public class BinaryTreeAlgorithms {
 			return 1 + Math.max(binaryTreeDepth(root.leftChild),
 					binaryTreeDepth(root.rigthChild));
 	}
-
 	// Clone binary tree
 	public static BinaryTreeNode cloneBinaryTree(BinaryTreeNode root) {
 		if (root == null)
@@ -195,7 +187,6 @@ public class BinaryTreeAlgorithms {
 			return isEqual(root1.leftChild, root2.leftChild)
 					&& isEqual(root1.rigthChild, root2.rigthChild);
 	}
-
 	// insert node to binary search tree
 	public static void insertNodeInBinarySearchTree(BinaryTreeNode root,
 			BinaryTreeNode node) {
@@ -216,7 +207,6 @@ public class BinaryTreeAlgorithms {
 		}
 		return;
 	}
-
 	// delete node from binary search tree
 	public static boolean deleteNodeFromBinarySearchTree(BinaryTreeNode root,
 			BinaryTreeNode node) {
@@ -266,7 +256,6 @@ public class BinaryTreeAlgorithms {
 		else
 			return findMaxElementInBinarySearchTree(root.rigthChild);
 	}
-
 	// sum of even level minus odd level
 	public static int evenLevelMinusOddLevel(BinaryTreeNode root, int depth) {
 
@@ -277,10 +266,8 @@ public class BinaryTreeAlgorithms {
 					* root.value
 					+ (evenLevelMinusOddLevel(root.leftChild, depth + 1) + evenLevelMinusOddLevel(
 							root.rigthChild, depth + 1));
-
 		}
 	}
-
 	// make binary tree from Inorder-postorder traversal
 	public static BinaryTreeNode buildTree(int[] inorder, int is, int ie,
 			int[] postorder, int ps, int pe) {
@@ -301,10 +288,8 @@ public class BinaryTreeAlgorithms {
 		}
 		return root;
 	}
-
 	// Write a function isBST(BinaryTree *node) to verify if a given binary tree
-	// is a Binary
-	// Search Tree (BST) or not.
+	// is a Binary Search Tree (BST) or not.
 	public static boolean isBinarySearchTree(BinaryTreeNode root, Count tmp) {
 		if (root == null)
 			return true;
@@ -344,7 +329,6 @@ public class BinaryTreeAlgorithms {
 		printBinaryTreeLeaves(root);
 		printBinaryTreeRigthNodes(root);
 	}
-
 	public static void printBinaryTreeLeftNodes(BinaryTreeNode root) {
 		if (root == null)
 			return;
@@ -356,7 +340,6 @@ public class BinaryTreeAlgorithms {
 			printBinaryTreeLeftNodes(root.leftChild);
 		}
 	}
-
 	public static void printBinaryTreeLeaves(BinaryTreeNode root) {
 		if (root == null)
 			return;
@@ -369,16 +352,14 @@ public class BinaryTreeAlgorithms {
 			return;
 		}
 	}
-
 	public static void printBinaryTreeRigthNodes(BinaryTreeNode root) {
 		if (root == null)
 			return;
 
-		int depth = AlgorithmicQuestions.binaryTreeDepth(root);
+		int depth = BinaryTreeAlgorithms.binaryTreeDepth(root);
 		for (int i = depth; i > 0; i--)
 			printRigthChildofLevelKofBinaryTree(root, i);
 	}
-
 	public static void printRigthChildofLevelKofBinaryTree(BinaryTreeNode root,
 			int depth) {
 		if (root == null)
@@ -388,7 +369,6 @@ public class BinaryTreeAlgorithms {
 		else
 			printRigthChildofLevelKofBinaryTree(root.rigthChild, depth - 1);
 	}
-
 	// Given a binary tree, print out the tree in level order (ie, from left to
 	// right, level by level).
 	// Output a newline after the end of each level.
@@ -403,7 +383,6 @@ public class BinaryTreeAlgorithms {
 			}
 		}
 	}
-
 	public static void printLevelKofBinaryTree(BinaryTreeNode root, int depth) {
 		if (root == null)
 			return;
@@ -431,13 +410,11 @@ public class BinaryTreeAlgorithms {
 			}
 		}
 	}
-
 	// Given a binary tree, print out the tree in zig zag level order (ie, from
 	// left to right, then right to
 	// left for the next level and alternate between). Output a newline after
 	// the end of each level.
 	public static void printBinaryTreeZigzagly(BinaryTreeNode root) {
-
 		if (root == null)
 			return;
 		else {
@@ -450,9 +427,7 @@ public class BinaryTreeAlgorithms {
 				System.out.print("\n");
 			}
 		}
-
 	}
-
 	// Given a binary tree, print the elements in pre-order iteratively without
 	// using recursion.
 	public static void printBinaryTreePreOrderIteratively(BinaryTreeNode root) {
@@ -460,7 +435,6 @@ public class BinaryTreeAlgorithms {
 			return;
 		Stack<BinaryTreeNode> nodeStack = new Stack<BinaryTreeNode>();
 		BinaryTreeNode tmp;
-
 		nodeStack.push(root);
 		while (!nodeStack.isEmpty()) {
 			tmp = nodeStack.pop();
@@ -471,16 +445,13 @@ public class BinaryTreeAlgorithms {
 			if (tmp.leftChild != null)
 				nodeStack.push(tmp.leftChild);
 		}
-
 		return;
 	}
-
 	// Given a binary tree, print the elements in post-order iteratively without
 	// using recursion.
 	public static void printBinaryTreePostOrderIteratively(BinaryTreeNode root) {
 		if (root == null)
 			return;
-
 		Stack<BinaryTreeNode> tmp = new Stack<BinaryTreeNode>();
 		Stack<BinaryTreeNode> res = new Stack<BinaryTreeNode>();
 
@@ -500,7 +471,6 @@ public class BinaryTreeAlgorithms {
 		while (!res.isEmpty())
 			System.out.print(" " + res.pop().value);
 	}
-
 	// Given a binary tree, print the elements in in-order iteratively without
 	// using recursion.
 	public static void printBinaryTreeInOrderIteratively(BinaryTreeNode root) {
@@ -515,7 +485,6 @@ public class BinaryTreeAlgorithms {
 
 		while (!res.isEmpty()) {
 			node = res.peek();
-
 			if (node.leftChild != null) {
 				if (!printed.contains(node.leftChild))
 					res.push(node.leftChild);
@@ -536,7 +505,6 @@ public class BinaryTreeAlgorithms {
 			}
 		}
 	}
-
 	// Given a binary tree, find the lowest common ancestor of two given nodes
 	// in the tree. Each node contains a parent pointer which links to its
 	// parent.
@@ -574,11 +542,8 @@ public class BinaryTreeAlgorithms {
 			if (max_index < postOrderList.indexOf(node))
 				max_index = postOrderList.indexOf(node);
 		}
-
 		return postOrderList.get(max_index);
-
 	}
-
 	public static BinaryTreeNode lowestCommonAncestorWithParrentPointer(
 			BinaryTreeNode root, BinaryTreeNode node1, BinaryTreeNode node2) {
 
@@ -598,9 +563,7 @@ public class BinaryTreeAlgorithms {
 				return node;
 			node = node.parrent;
 		}
-
 		return null;
-
 	}
 
 	// Merge two balanced BST into one Balanced BST
@@ -621,7 +584,6 @@ public class BinaryTreeAlgorithms {
 
 		return tmp;
 	}
-
 	public static BinaryTreeNode makeBSTfromSortedList(List<BinaryTreeNode> lst) {
 		if (lst == null || lst.size() == 0)
 			return null;
@@ -631,11 +593,9 @@ public class BinaryTreeAlgorithms {
 			tmp.leftChild = makeBSTfromSortedList(lst.subList(0, middle));
 			tmp.rigthChild = makeBSTfromSortedList(lst.subList(middle + 1,
 					lst.size()));
-
 			return tmp;
 		}
 	}
-
 	public static List<BinaryTreeNode> mergeLists(List<BinaryTreeNode> lst1,
 			List<BinaryTreeNode> lst2) {
 
@@ -654,20 +614,15 @@ public class BinaryTreeAlgorithms {
 			} else {
 				mergedList.add(node2);
 				node2 = lst2itr.next();
-
 			}
 		}
 
 		while (lst1itr.hasNext())
 			mergedList.add(lst1itr.next());
-
 		while (lst2itr.hasNext())
 			mergedList.add(lst2itr.next());
-
 		return mergedList;
-
 	}
-
 	// Check if the BST contains two nodes which there sum is N
 	public static boolean checkSumBST(BinaryTreeNode root, int sum) {
 		if (root == null)
@@ -679,11 +634,9 @@ public class BinaryTreeAlgorithms {
 		// Remember to initialize to the size of list
 		ListIterator<BinaryTreeNode> end_it = inOrderList
 				.listIterator(inOrderList.size());
-
 		BinaryTreeNode node1, node2;
 		node1 = start_it.next();
 		node2 = end_it.previous();
-
 		while (start_it != end_it) {
 
 			if (node1.value + node2.value == sum) {
@@ -695,11 +648,9 @@ public class BinaryTreeAlgorithms {
 			} else {
 				node1 = start_it.next();
 			}
-
 		}
 		return false;
 	}
-
 	// Mirror Binary Tree
 	public static BinaryTreeNode mirrorBinaryTree(BinaryTreeNode root) {
 		if (root == null)
@@ -711,9 +662,7 @@ public class BinaryTreeAlgorithms {
 			mTree.leftChild = mirrorBinaryTree(root.rigthChild);
 			return mTree;
 		}
-
 	}
-
 	// Given a binary tree, find the largest Binary Search Tree (BST), where
 	// largest means BST with largest number of
 	// nodes in it. The largest BST may or may not include all of its
@@ -747,7 +696,6 @@ public class BinaryTreeAlgorithms {
 			}
 		}
 	}
-
 	// Convert a BST to a sorted circular doubly-linked list "IN_PLACE" . Think
 	// of the left and right pointers as synonymous to the previous and next
 	// pointers in a doubly-linked list. (do it in-place!)
@@ -799,6 +747,4 @@ public class BinaryTreeAlgorithms {
 			return head;
 		}
 	}
-
-	
 }
