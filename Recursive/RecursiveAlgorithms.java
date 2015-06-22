@@ -1,5 +1,7 @@
+import java.util.*;
+
 public class RecursiveAlgorithms {
-  
+ 
   // All path in grid with size m, n
 	public static void allPath(List<String> path, int down, int rigth) {
 		// Consider that the initial condition is set for ZERO!
@@ -166,7 +168,7 @@ public class RecursiveAlgorithms {
 			return;
 		}
 	}
-		// Write border of the matrix clockwise
+	// Write border of the matrix clockwise
 	public static void writeMatrixBorder(int[][] matrix, int i, int j, int m,
 			int n, List<Integer> spiralFormat) {
 
@@ -360,5 +362,35 @@ public class RecursiveAlgorithms {
 			sum += Integer.parseInt(str);
 
 		return sum;
+	}
+	// Given a triangle, find the minimum path sum from top to bottom. Each step
+	// you may move to
+	// adjacent numbers on the row below.
+	// For example, given the following triangle
+	// [2],
+	// [3,4],
+	// [6,5,7],
+	// [4,1,8,3]
+	// The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+	public static int minPathInTriangle(Integer[][] traingle, int row,
+			int column) {
+		if (traingle == null)
+			return 0;
+		else {
+			if (traingle.length <= row)
+				return 0;
+			if (column < 0)
+				return 0;
+			if (traingle[row].length <= column)
+				return 0;
+
+			int below, rigth;
+
+			below = minPathInTriangle(traingle, row + 1, column);
+			rigth = minPathInTriangle(traingle, row + 1, column + 1);
+
+			return (int) Math.min(traingle[row][column] + below,
+					traingle[row][column] + rigth);
+		}
 	}
 }
