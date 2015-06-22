@@ -393,4 +393,29 @@ public class RecursiveAlgorithms {
 					traingle[row][column] + rigth);
 		}
 	}
+	// Given a string s and a dictionary of words dict, determine if s can be
+	// segmented into a
+	// space-separated sequence of one or more dictionary words.
+	// For example, given
+	// s = "leetcode",
+	// dict = ["leet", "code"].
+	// Return true because "leetcode" can be segmented as "leet code".
+	public static void decomposeString(String str, List<String> dic,
+			Set<String> decomposeList) {
+		// start case check if str is equal to any dictionary word alone
+		// we assume that dictionary words are basic and could not decompose to
+		// any other elements
+		for (String s : dic)
+			if (str.equals(s))
+				decomposeList.add(str);
+			else if (str.length() > s.length())
+				// check the first substring for validity!
+				if (str.substring(0, s.length()).equals(s)) {
+					Set<String> lst = new HashSet<String>();
+					decomposeString(str.substring(s.length(), str.length()),
+							dic, lst);
+					for (String sTmp : lst)
+						decomposeList.add(s + " " + sTmp);
+				}
+	}
 }
