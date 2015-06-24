@@ -1,5 +1,6 @@
 import java.util.*;
 
+//These classes are for linked list nodes and will be used in some of the functions bellow.
 class SinglyNode {
 	public int value;
 
@@ -21,9 +22,8 @@ class DoublyNode {
 	}
 }
 
-
 public class MiscellaneousAlgorithms {
-  // Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence
+        // Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence
 	// 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, â€¦ shows the first 11 ugly numbers. By convention,
 	// 1 is included. Write a program to find and print the 150â€²th ugly number.
 	public static Integer uglyNumber(int kth) {
@@ -214,8 +214,7 @@ public class MiscellaneousAlgorithms {
 
 	// Given two sorted arrays A, B of size m and n respectively. Find the k-th
 	// smallest element in the union of A and B. You can assume that there are
-	// no
-	// duplicate elements.
+	// no duplicate elements.
 
 	public static int kthSmallestElement(int[] a, int[] b, int k)
 			throws Exception {
